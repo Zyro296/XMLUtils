@@ -55,5 +55,7 @@ jobs:
           host: ${{ secrets.WIN_SERVER_HOST }}
           username: ${{ secrets.WIN_SERVER_USER }}
           password: ${{ secrets.WIN_SERVER_PASS }}
-          source: "XMLUtils.exe"
+          source: "dist"
           target: "C:/inetpub/wwwroot/downloads"
+          strip_components: 1
+
