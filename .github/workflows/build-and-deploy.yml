@@ -27,7 +27,7 @@ jobs:
           jpackage ^
           --type exe ^
           --input target ^
-          --name XMLUtils --app-image dist --output dist
+          --name XMLUtils --app-image dist --output dist ^
           --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
           --main-class gg.seraph.main.Editor ^
           --dest dist ^
@@ -57,5 +57,5 @@ jobs:
           host: ${{ secrets.WIN_SERVER_HOST }}
           username: ${{ secrets.WIN_SERVER_USER }}
           password: ${{ secrets.WIN_SERVER_PASS }}
-          source: "installer/XMLUtils-1.0.0.exe"
+          source: "installer/XMLUtils-1.0.exe"
           target: "C:/inetpub/wwwroot/downloads"
