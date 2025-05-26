@@ -1,0 +1,42 @@
+name: Build and Deploy Installer
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Package installer with jpackage
+        run: |
+          mkdir dist
+          jpackage ^
+            --type exe ^
+            --input target ^
+            --name XMLUtils ^
+            --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
+            --main-class gg.seraph.main.Editor ^
+            --dest dist ^
+            --java-options "--enable-preview"
+
+      - name: Upload to Windows Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.WIN_SERVER_HOST }}
+          username: ${{ secrets.WIN_SERVER_USER }}
+          password: ${{ secrets.WIN_SERVER_PASS }}
+          source: "dist/XMLUtils.exe"
+          target: "C:/inetpub/wwwroot/downloads"
