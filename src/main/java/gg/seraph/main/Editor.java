@@ -32,7 +32,7 @@ public class Editor extends JFrame {
         JMenuBar menuBar = menuBarBuilder.build(e -> handleMenuAction(e.getActionCommand()));
         setJMenuBar(menuBar);
 
-        //test
+        //test2
 
         setVisible(true);
     }
