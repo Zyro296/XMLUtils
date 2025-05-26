@@ -28,7 +28,6 @@ jobs:
           --type exe ^
           --app-image dist ^
           --name XMLUtils ^
-          --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
           --main-class gg.seraph.main.Editor ^
           --dest dist ^
           --java-options "--enable-preview"
