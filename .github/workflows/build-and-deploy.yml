@@ -21,16 +21,18 @@ jobs:
         run: mvn clean package
 
       - name: Package installer with jpackage
+        shell: cmd
         run: |
           mkdir dist
           jpackage ^
-            --type exe ^
-            --input target ^
-            --name XMLUtils ^
-            --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
-            --main-class gg.seraph.main.Editor ^
-            --dest dist ^
-            --java-options "--enable-preview"
+          --type exe ^
+          --input target ^
+          --name XMLUtils ^
+          --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
+          --main-class gg.seraph.main.Editor ^
+          --dest dist ^
+          --java-options "--enable-preview"
+
 
       - name: Upload to Windows Server
         uses: appleboy/scp-action@master
