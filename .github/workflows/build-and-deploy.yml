@@ -26,11 +26,13 @@ jobs:
           mkdir dist
           jpackage ^
           --type exe ^
-          --app-image dist ^
+          --input target ^
           --name XMLUtils ^
+          --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
           --main-class gg.seraph.main.Editor ^
           --dest dist ^
           --java-options "--enable-preview"
+
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
