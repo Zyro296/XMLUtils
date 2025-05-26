@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: installer
-          path: dist/XMLUtils.exe
+          path: dist/XMLUtils-1.0.exe
 
   deploy:
     needs: build
