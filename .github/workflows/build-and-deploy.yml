@@ -33,12 +33,26 @@ jobs:
           --dest dist ^
           --java-options "--enable-preview"
 
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: installer
+          path: dist/XMLUtils.exe
 
-      - name: Upload to Windows Server
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download installer artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: installer
+
+      - name: Upload to Windows Server via SCP
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.WIN_SERVER_HOST }}
           username: ${{ secrets.WIN_SERVER_USER }}
           password: ${{ secrets.WIN_SERVER_PASS }}
-          source: "dist/XMLUtils.exe"
+          source: "XMLUtils.exe"
           target: "C:/inetpub/wwwroot/downloads"
