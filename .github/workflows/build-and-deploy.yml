@@ -26,8 +26,8 @@ jobs:
           mkdir dist
           jpackage ^
           --type exe ^
-          --input target ^
-          --name XMLUtils --app-image dist ^
+          --app-image dist ^
+          --name XMLUtils ^
           --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
           --main-class gg.seraph.main.Editor ^
           --dest dist ^
