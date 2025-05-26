@@ -7,3 +7,4 @@ You can find all documentation in the [`docs/`](./docs/) folder.
 - [Project Overview](./ObsidianDocs/00_Project_Overview.md)
 - [Feature Roadmap](./ObsidianDocs/01_Feature%20Roadmap.md)
 - [Component Breakdown](./ObsidianDocs/02_Component%20Breakdown.md)
+
