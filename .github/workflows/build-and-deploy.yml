@@ -27,18 +27,18 @@ jobs:
           jpackage ^
           --type exe ^
           --input target ^
-          --name XMLUtils ^
+          --name XMLUtils-1.0 ^
           --main-jar XMLUtils-1.0-SNAPSHOT.jar ^
           --main-class gg.seraph.main.Editor ^
           --dest dist ^
           --java-options "--enable-preview"
+          move dist\XMLUtils-1.0.exe XMLUtils-1.0.exe
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-            name: installer
-            path: dist/
-
+          name: installer
+          path: XMLUtils-1.0.exe
 
   deploy:
     needs: build
@@ -49,9 +49,8 @@ jobs:
         with:
           name: installer
 
-      - name: Show extracted files
+      - name: Show extracted files (debug)
         run: ls -R
-
 
       - name: Upload to Windows Server via SCP
         uses: appleboy/scp-action@master
@@ -59,8 +58,5 @@ jobs:
           host: ${{ secrets.WIN_SERVER_HOST }}
           username: ${{ secrets.WIN_SERVER_USER }}
           password: ${{ secrets.WIN_SERVER_PASS }}
-          source: "installer/XMLUtils.exe"
+          source: "XMLUtils-1.0.exe"
           target: "C:/inetpub/wwwroot/downloads"
-
-
-
