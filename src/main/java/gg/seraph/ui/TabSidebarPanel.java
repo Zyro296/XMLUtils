@@ -5,20 +5,24 @@ import java.awt.*;
 
 public class TabSidebarPanel extends JPanel {
 
+    private final DefaultListModel<String> tabListModel;
+    private final JList<String> tabList;
+
     public TabSidebarPanel() {
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setPreferredSize(new Dimension(150,0)); //fixed width sidebar
+        setLayout(new BorderLayout());
 
-        //placeholder tabs
-        add(createTabButton("file1.xml"));
-        add(createTabButton("file.xml"));
+        tabListModel = new DefaultListModel<>();
+        tabList = new JList<>(tabListModel);
+        tabList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+        add(new JScrollPane(tabList), BorderLayout.CENTER);
     }
 
-    private JButton createTabButton(String name){
-        JButton button = new JButton(name);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        return button;
+    public void addTab(String title) {
+        tabListModel.addElement(title);
     }
 
+    public JList<String> getTabList() {
+        return tabList;
+    }
 }

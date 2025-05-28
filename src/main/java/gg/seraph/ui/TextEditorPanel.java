@@ -5,28 +5,19 @@ import java.awt.*;
 
 public class TextEditorPanel extends JPanel {
 
-    private final JTextPane textpane;
+    private final JTextArea textArea;
 
     public TextEditorPanel() {
         setLayout(new BorderLayout());
-
-        textpane = new JTextPane();
-        JScrollPane scrollPane = new JScrollPane(textpane);
-
-        add(scrollPane, BorderLayout.CENTER);
-
+        textArea = new JTextArea();
+        add(new JScrollPane(textArea), BorderLayout.CENTER);
     }
 
-    public JTextPane getTextpane() {
-        return textpane;
+    public void setText(String content) {
+        textArea.setText(content);
     }
 
-    public void setText(String text){
-        textpane.setText(text);
+    public String getText() {
+        return textArea.getText();
     }
-
-    public String getText(){
-        return textpane.getText();
-    }
-
 }

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_Component Breakdown.md",
+                "file": "HowTo_AutoDeploy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_Component Breakdown"
+              "title": "HowTo_AutoDeploy"
             }
           },
           {
@@ -180,8 +180,9 @@
   },
   "active": "02457839e8c2b87b",
   "lastOpenFiles": [
-    "01_Feature Roadmap.md",
     "02_Component Breakdown.md",
+    "HowTo_AutoDeploy.md",
+    "01_Feature Roadmap.md",
     "03_UI Planning.md",
     "Component_TabSidebarPanel.md",
     "Component_MenuBar.md",
